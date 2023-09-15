@@ -1,0 +1,50 @@
+<%- include('partials/head')%>
+
+<body>
+
+    <%- include('partials/navbar')%>
+    
+        <a href="/createUser" class="btn btn-outline-primary mt-4"><i class="bx bxs-plus-circle bx-lg"></i
+            >Nuevo Carga</a>
+            <a href="/" class="btn btn-outline-success mt-4"><i class="bx bxs-homme-alt-2 bx-lg"></i
+                >Inicio</a>
+            
+
+        <table class="table table-danger table-bordered table-striped text-center mt-4">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Contenido</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% result.forEach((users) => { %> 
+        <tr>
+            <td><%= users.id %></td>
+            <td><%= users.titulo %></td>
+            <td><%= users.contenido %></td>
+            <td>
+                <img src="<%=  users.image %>" class="card-img-top" alt="..." />
+            </td>
+            <td class="align-middle">
+                <a href="/editUser/<%= users.id %>" class="btn btn-success"><i class="bx bxs-edit-alt bx-sm"></i>
+                </a>
+            </td>
+            <td>
+                <a href="/deleteUser/<%= users.id %>"
+                    class="btn btn-danger" onclick="return confirm('Esta seguro de eliminar usuario: <%= users.id %>')"
+                    ><i class="bx bxs-trash bx-sm"></i
+                ></a>
+            </td>
+        </tr>
+        <% }) %>
+        </tbody>
+        </table>
+    </div>
+
+    
+<%- include('partials/footer')%>

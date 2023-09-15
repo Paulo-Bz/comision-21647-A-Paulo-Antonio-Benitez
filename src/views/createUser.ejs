@@ -1,0 +1,39 @@
+<%- include('partials/head')%>
+
+<body>
+
+<%- include('partials/navbar')%>
+
+<div class="col-md-5">
+  <div class="card-body">
+    <form action="/saveUser" method="post">
+      <input
+        type="text"
+        name="titulo"
+        placeholder="Titulo"
+        class="form-control mb-2"
+        required
+      />
+      <input
+        type="textarea"
+        name="contenido"
+        placeholder="Contenido"
+        class="form-control mb-2"
+        required
+      />
+      <input
+        type="text"
+        name="imagen"
+        placeholder="Url de imagen"
+        class="form-control mb-2"
+        required
+      />
+
+      <button type="submit" class="btn btn-info">subir contenido</button>
+      <a href="/user" class="btn btn-info">regresar</a>
+    </form>
+  </div>
+</div>
+
+
+<%- include('partials/footer')%>

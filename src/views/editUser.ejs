@@ -1,0 +1,53 @@
+<%- include('partials/head')%>
+
+<body>
+
+    <%- include('partials/navbar')%>
+   
+
+
+<% if (user) { %>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5 offset-md-3 card bg-dark">
+        <div class="card-body">
+          <form action="/updateUser" method="post">
+            <input
+            name="id"
+            value="<%= user.id %>" hidden
+          />
+            <input
+              type="text"
+              name="titulo"
+              value="<%= user.titulo %>"
+              placeholder="Titulo"
+              class="form-control mb-3"
+              required
+            />
+            <input
+              type="textarea"
+              name="contenido"
+              value="<%= user.contenido%>"
+              placeholder="Contenido"
+              class="form-control mb-3"
+              required
+            />
+            <input
+              type="text"
+              name="imagen"
+              value="<%= user.imagen%>"
+              placeholder="Url de imagen"
+              class="form-control mb-3"
+              required
+            />
+  
+            <button type="submit" class="btn btn-primary">subir edicion</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <% } %>
+</body>
+
+<%- include('partials/footer')%>
